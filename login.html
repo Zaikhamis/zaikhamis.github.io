@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body><center>
+    <div>
+        <h1>login Form</h1>
+        <form> 
+            <input type="text" id="name" name="user name" value="" placeholder="user name"><br><br>
+            <input type="text" id="password" name="password"value=""placeholder="password"><br><br>
+            <a  class=forgot href="forgot password" > forger password</a><br><br>
+            <button  type="submit" id="login">login</button></center><br>
+
+            
+            
+    
+        </form>
+    </div><br><br>
+    <a href="index.html"><button class="homeb">back to home </button></a>
+    <div id="info"></div>
+</body>
+<script>
+    let contactinf =document.querySelector("#login");
+    contactinf.addEventListener("click",function(event){
+        event.preventDefault();
+        let name =document.querySelector("#name").value;
+        let passsword =document.querySelector("#password").value;
+        
+        
+        if(name === "zainab" && passsword === "1234" ) {
+            let contacts=JSON.parse(localStorage.getItem("contacts"))||[];
+            let contactinf ="";
+            for(let a = 0;a <contacts.length;a++){
+                contactinf += "<h1>" + (a+1) + "</h1>";
+                contactinf += "<p><strong>NAME:</strong>"+ contacts[a].name1+ "</p>";
+                contactinf += "<p><strong>ADDRESS:</strong>"+ contacts[a].address1+ "</p>";
+                contactinf += "<p><strong>EMAIL:</strong>"+ contacts[a].email1+ "</p>";
+                contactinf += "<p><strong>MESSAGI:</strong>"+ contacts[a].messagi1+ "</p>";
+            };
+            document.getElementById("info").innerHTML= contactinf;
+
+
+        }
+        else{
+            alert("invalid username or password");
+        };
+
+    });
+</script>
+</html>
